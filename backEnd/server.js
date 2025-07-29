@@ -2,11 +2,28 @@ import express from "express";
 import cors from "cors";
 import { PrismaClient } from "./generated/prisma/index.js";
 
+const app = express();
 const prisma = new PrismaClient();
 
-const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.get("/users", async (req, res) => {
+  const user = await prisma.user.findMany();
+
+  res.send(user);
+});
+
+app.post("/users", async (req, res) => {
+  await prisma.user.create({
+    data: {
+      email: req.body.email,
+      name: req.body.name,
+      age: req.body.age,
+    },
+  });
+  res.send("Usuário criado!");
+});
 
 app.put("/users/:id", async (req, res) => {
   await prisma.user.update({
@@ -19,26 +36,7 @@ app.put("/users/:id", async (req, res) => {
       age: req.body.age,
     },
   });
-
-  res.send("Deu bom, família!");
-});
-
-app.post("/users", async (req, res) => {
-  await prisma.user.create({
-    data: {
-      email: req.body.email,
-      name: req.body.name,
-      age: req.body.age,
-    },
-  });
-
-  res.send("Deu bom, támbem!");
-});
-
-app.get("/users", async (req, res) => {
-  const user = await prisma.user.findMany();
-
-  res.send(user);
+  res.send("Usuário atualizado!");
 });
 
 app.delete("/users/:id", async (req, res) => {
@@ -50,4 +48,11 @@ app.delete("/users/:id", async (req, res) => {
   res.send("Usuário deletado!");
 });
 
-app.listen(3000);
+const port = process.env.PORT || 3000;
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
+  });
+}
+
+export default app;
