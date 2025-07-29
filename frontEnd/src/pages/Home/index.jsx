@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./style.css";
-import Trash from "../../assets/Trash.png";
+import trash from "../../assets/trash.png";
 import api from "../../services/api";
 
 function Home() {
@@ -61,7 +61,7 @@ function Home() {
             </p>
           </div>
           <button onClick={() => deletUsers(user.id)}>
-            <img src={Trash} alt="lixeira" width={30} height={30} />
+            <img src={trash} alt="lixeira" width={30} height={30} />
           </button>
         </div>
       ))}
