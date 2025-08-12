@@ -15,3 +15,7 @@ Projeto de cadastro de usuário, onde é possível inserir informações como no
 1. Link do projeto:
    ```bash
    https://cadastro-de-usuario-ochre.vercel.app
+
+## Imagem do projeto
+   
+![Screenshot do site](./frontEnd/src/assets/imagemSite.png)
