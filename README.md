@@ -1,20 +1,19 @@
 # Cadastro de Usuário
 
-## Descrição
+## 📋 Descrição
 
 Projeto de cadastro de usuário, onde é possível inserir informações como nome, idade e email. A aplicação possui integração com back-end e utiliza banco de dados para salvar as informações.
 
-## Tecnologias
+## 🛠️ Tecnologias
 
 - NodeJs
 - MongoDB
 - ReactJs
 
-## Como usar
+## 🌍 Acesse o projeto
 
-1. Link do projeto:
-   ```bash
-   https://cadastro-de-usuario-ochre.vercel.app
+Você pode acessar o projeto online clicando no link abaixo:  
+👉  [Cadastro de Usuário](https://cadastro-de-usuario-ochre.vercel.app)
 
 ## Imagem do projeto
    
